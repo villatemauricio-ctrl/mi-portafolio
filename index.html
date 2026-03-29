@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Fernando Villate - Portfolio Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            padding-top: 70px;
+        }
+
+        /* --- NAVEGACIÓN FIJA --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HEADER Y AVATAR --- */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .avatar-mvr {
+            width: 120px;
+            height: 120px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 0.25rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            transition: transform 0.2s;
+        }
+
+        /* Habilidades */
+        .skill-bar-container {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .progress-bg {
+            background: #e2e8f0;
+            border-radius: 999px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            height: 100%;
+            border-radius: 999px;
+        }
+
+        /* Certificaciones */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Experiencia */
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .experience-date {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .experience-company {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .experience-role {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Proyectos Expandibles */
+        .project-card {
+            cursor: pointer;
+            border-top: 4px solid var(--primary);
+        }
+
+        .project-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .btn-expand {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Formulario */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .contact-info { gap: 0.5rem; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-logo">MVR Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#about">Perfil</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#certifications">Certificaciones</a></li>
+            <li><a href="#experience">Experiencia</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <div class="avatar-mvr">MVR</div>
+        <h1>Mauricio Fernando Villate Rodriguez</h1>
+        <p class="subtitle">Arquitecto de Datos | Business Intelligence | Experto en Big Data</p>
+        <div class="contact-info">
+            <span>📍 Bogotá, Colombia </span>
+            <span>📧 villate.mauricio@gmail.com</span>
+            <span>📱 3016265353</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section id="about">
+        <h2>Perfil Profesional</h2>
+        <div class="card">
+            <p>Ingeniero de Sistemas con amplia experiencia en proyectos TI del sector público y privado. Especializado como Arquitecto de Datos, Arquitecto Business Intelligence, Líder de Migración y Consultor en Analítica Avanzada y Big Data. Experto en el diseño y desarrollo de soluciones complejas de bases de datos e infraestructura de información.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Habilidades Técnicas</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Bases de Datos</h3>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Oracle (11g/12c/19c)</span><span>95%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>SQL Server / PostgreSQL</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>MongoDB / NoSQL</span><span>75%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 75%"></div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>BI & Analytics</h3>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>ETL (ODI, Datastage, Pentaho)</span><span>90%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>OBIEE / Tableau</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Big Data (PySpark, AWS)</span><span>80%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%"></div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Lenguajes & Otros</h3>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Python / R / Scala / PL-SQL</span><span>90%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Java / C++ / PHP / JSP</span><span>80%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Inglés (Nivel British Council B2-D4)</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certificaciones Oficiales</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #f00;">
+                    <strong style="color: #f00;">ORACLE</strong><br>
+                    <span style="font-size: 0.7rem;">Certified Associate</span>
+                </div>
+                <strong>Oracle OCA</strong>
+            </div>
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #0ea5e9;">
+                    <strong style="color: #0ea5e9;">Arcitura</strong><br>
+                    <span style="font-size: 0.7rem;">Big Data Science</span>
+                </div>
+                <strong>Big Data Science Professional</strong>
+            </div>
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #10b981;">
+                    <strong style="color: #10b981;">Arcitura</strong><br>
+                    <span style="font-size: 0.7rem;">Big Data Professional</span>
+                </div>
+                <strong>Big Data Professional</strong>
+            </div>
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #6366f1;">
+                    <strong style="color: #6366f1;">Arcitura</strong><br>
+                    <span style="font-size: 0.7rem;">Big Data Consultant</span>
+                </div>
+                <strong>Big Data Consultant</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experiencia Laboral</h2>
+        
+        <div class="experience-item">
+            <div class="experience-date">Julio 2024 - Presente</div>
+            <div class="experience-company">TIVIT</div>
+            <div class="experience-role">Database Administrator</div>
+            <p>Administración crítica de BD Oracle (11g, 12c, 19c) y OBIEE para grandes clientes como NEPS y Cruz Verde.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Octubre 2021 - Septiembre 2022</div>
+            <div class="experience-company">BBVA</div>
+            <div class="experience-role">Arquitecto de Datos</div>
+            <p>Gobierno de datos, administración de usuarios GIAM y modelado de datos avanzado con Power Designer y MongoDB.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Abril 2023 - Enero 2024</div>
+            <div class="experience-company">BUSINESS INSIGHTS</div>
+            <div class="experience-role">Consultor Arquitecto de Datos</div>
+            <p>Diseño de soluciones BI complejas para la "Nueva EPS" integrando OWB y Talend.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Diciembre 2022 - Diciembre 2023</div>
+            <div class="experience-company">BANCO CAJA SOCIAL</div>
+            <div class="experience-role">Arquitecto de Datos e Infraestructura</div>
+            <p>Liderazgo técnico en Bodega Transaccional Contable y procesos ETL estratégicos.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Noviembre 2022 - Diciembre 2022</div>
+            <div class="experience-company">COLPENSIONES</div>
+            <div class="experience-role">Arquitecto de Datos</div>
+            <p>Diseño de arquitectura para migración de base de datos, robotización RPA y proyectos PETI institucionales.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Diciembre 2019 - Octubre 2021</div>
+            <div class="experience-company">INFOMEDIA / TELEFÓNICA</div>
+            <div class="experience-role">Líder DBA</div>
+            <p>Coordinación del equipo de administradores de BD para el Datacenter SENA (Principal y Alterno).</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Mayo 2019 - Diciembre 2019</div>
+            <div class="experience-company">PERIFERIA IT GROUP</div>
+            <div class="experience-role">Ingeniero de Datos</div>
+            <p>Diseño y arquitectura de Data Lake para Porvenir, desarrollo de ETLs con IBM Datastage y analítica avanzada con Spark y AWS.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Educación y Formación</h2>
+        <div class="grid">
+            <div class="card">
+                <strong>UNIVERSIDAD INTERNACIONAL DE VALENCIA - ESPAÑA</strong><br>
+                Maestría: Astronomía y Astrofísica<br>
+                <span class="experience-date">Febrero 2013 - Abril 2017</span>
+            </div>
+            <div class="card">
+                <strong>UNIVERSIDAD PILOTO DE COLOMBIA - BOGOTA</strong><br>
+                Diplomado: Administración Base de datos Oracle (Networking, Recuperación Tuning)<br>
+                <span class="experience-date">Agosto 2004 - Septiembre 2004</span>
+            </div>
+            <div class="card">
+                <strong>APTECH (Proyecto Inteligente) - BOGOTA</strong><br>
+                Especialización: Web Database Developer<br>
+                <span class="experience-date">Enero 2002 - Julio 2003</span>
+            </div>
+            <div class="card">
+                <strong>UNIVERSIDAD ANTONIO NARIÑO - BOGOTA</strong><br>
+                Ingeniería de Sistemas<br>
+                <span class="experience-date">1995 - 2000</span>
+            </div>
+            <div class="card">
+                <strong>COLEGIO SALESIANO JUAN DEL RIZZO</strong><br>
+                Bachiller Clásico<br>
+                <span class="experience-date">1991</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Proyectos Destacados</h2>
+        <div class="grid">
+            <div class="card project-card" onclick="toggleProject(this)">
+                <h3>Migración Data Center SENA</h3>
+                <p>Haz clic para ver detalles técnicos.</p>
+                <div class="project-details">
+                    <p>Coordinación y ejecución de la migración de bases de datos críticas, optimizando tiempos y garantizando la integridad de la información educativa.</p>
+                </div>
+                <button class="btn-expand">Ver más</button>
+            </div>
+            <div class="card project-card" onclick="toggleProject(this)">
+                <h3>Data Lake Porvenir</h3>
+                <p>Implementación de infraestructura Big Data.</p>
+                <div class="project-details">
+                    <p>Uso de AWS y PySpark para el procesamiento masivo de datos financieros, facilitando la toma de decisiones basada en analítica avanzada.</p>
+                </div>
+                <button class="btn-expand">Ver más</button>
+            </div>
+            <div class="card project-card" onclick="toggleProject(this)">
+                <h3>Analítica Nueva EPS</h3>
+                <p>Modernización de Business Intelligence.</p>
+                <div class="project-details">
+                    <p>Integración de procesos ETL complejos para la visualización de indicadores de salud en tiempo real.</p>
+                </div>
+                <button class="btn-expand">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto</h2>
+        <div class="contact-form">
+            <form onsubmit="enviarContacto(); return false;">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre..." required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea id="mensaje" rows="4" placeholder="¿En qué puedo ayudarte?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Mauricio Fernando Villate Rodriguez - Portfolio Profesional</p>
+</footer>
+
+<script>
+    function toggleProject(card) {
+        const details = card.querySelector('.project-details');
+        const button = card.querySelector('.btn-expand');
+        if (details.style.display === 'block') {
+            details.style.display = 'none';
+            button.innerText = 'Ver más';
+        } else {
+            details.style.display = 'block';
+            button.innerText = 'Ver menos';
+        }
+    }
+
+    function enviarContacto() {
+      var nombre = document.getElementById('nombre').value;
+      var mensaje = document.getElementById('mensaje').value;
+      var asunto = 'Contacto desde Portfolio - ' + nombre;
+      var cuerpo = 'Nombre: ' + nombre + '\n\nMensaje: ' + mensaje;
+      window.location.href = 'mailto:villate.mauricio@gmail.com?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Fernando Villate - Portfolio Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 0.25rem;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            transition: transform 0.2s;
+        }
+
+        /* Habilidades con barras de progreso */
+        .skill-bar-container {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .progress-bg {
+            background: #e2e8f0;
+            border-radius: 999px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            height: 100%;
+            border-radius: 999px;
+        }
+
+        /* Certificaciones mejoradas */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .experience-date {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .experience-company {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .experience-role {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Mauricio Fernando Villate Rodriguez</h1>
+        <p class="subtitle">Arquitecto de Datos | Business Intelligence | Experto en Big Data</p>
+        <div class="contact-info">
+            <a href="mailto:villate.mauricio@gmail.com" class="contact-item">📧 villate.mauricio@gmail.com</a>
+            <span class="contact-item">📞 3016265353</span>
+            <span class="contact-item">📍 Bogotá, Colombia</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section id="about">
+        <h2>Perfil Profesional</h2>
+        <div class="profile-card">
+            <p>Ingeniero de Sistemas con amplia experiencia en proyectos TI del sector público y privado. Especializado como Arquitecto de Datos, Arquitecto Business Intelligence, Líder de Migración y Consultor en Analítica Avanzada y Big Data. Experto en el diseño y desarrollo de soluciones complejas de bases de datos e infraestructura de información.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Habilidades Técnicas</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Bases de Datos</h3>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Oracle (11g/12c/19c)</span><span>95%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>SQL Server / PostgreSQL</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>MongoDB / NoSQL</span><span>75%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 75%"></div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>BI & Analytics</h3>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>ETL (ODI, Datastage, Pentaho)</span><span>90%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>OBIEE / Tableau</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Big Data (PySpark, AWS)</span><span>80%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certificaciones Oficiales</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #f00;">
+                    <strong style="color: #f00;">ORACLE</strong><br>
+                    <span style="font-size: 0.7rem;">Certified Associate</span>
+                </div>
+                <strong>Oracle OCA</strong>
+            </div>
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #0ea5e9;">
+                    <strong style="color: #0ea5e9;">Arcitura</strong><br>
+                    <span style="font-size: 0.7rem;">Big Data Science</span>
+                </div>
+                <strong>Big Data Science Professional</strong>
+            </div>
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #10b981;">
+                    <strong style="color: #10b981;">Arcitura</strong><br>
+                    <span style="font-size: 0.7rem;">Big Data Professional</span>
+                </div>
+                <strong>Big Data Professional</strong>
+            </div>
+            <div class="cert-card">
+                <div style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-bottom: 10px; border-top: 4px solid #6366f1;">
+                    <strong style="color: #6366f1;">Arcitura</strong><br>
+                    <span style="font-size: 0.7rem;">Big Data Consultant</span>
+                </div>
+                <strong>Big Data Consultant</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experiencia Laboral</h2>
+        
+        <div class="experience-item">
+            <div class="experience-date">Julio 2024 - Presente</div>
+            <div class="experience-company">TIVIT</div>
+            <div class="experience-role">Database Administrator</div>
+            <p>Administración crítica de BD Oracle (11g, 12c, 19c) y OBIEE para grandes clientes como NEPS y Cruz Verde.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Octubre 2021 - Septiembre 2022</div>
+            <div class="experience-company">BBVA</div>
+            <div class="experience-role">Arquitecto de Datos</div>
+            <p>Gobierno de datos, administración de usuarios GIAM y modelado de datos avanzado con Power Designer y MongoDB.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Abril 2023 - Enero 2024</div>
+            <div class="experience-company">BUSINESS INSIGHTS</div>
+            <div class="experience-role">Consultor Arquitecto de Datos</div>
+            <p>Diseño de soluciones BI complejas para la "Nueva EPS" integrando OWB y Talend.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Diciembre 2022 - Diciembre 2023</div>
+            <div class="experience-company">BANCO CAJA SOCIAL</div>
+            <div class="experience-role">Arquitecto de Datos e Infraestructura</div>
+            <p>Liderazgo técnico en Bodega Transaccional Contable y procesos ETL estratégicos.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Noviembre 2022 - Diciembre 2022</div>
+            <div class="experience-company">COLPENSIONES</div>
+            <div class="experience-role">Arquitecto de Datos</div>
+            <p>Diseño de arquitectura para migración de base de datos, robotización RPA y proyectos PETI institucionales.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Diciembre 2019 - Octubre 2021</div>
+            <div class="experience-company">INFOMEDIA / TELEFÓNICA</div>
+            <div class="experience-role">Líder DBA</div>
+            <p>Coordinación del equipo de administradores de BD para el Datacenter SENA (Principal y Alterno).</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-date">Mayo 2019 - Diciembre 2019</div>
+            <div class="experience-company">PERIFERIA IT GROUP</div>
+            <div class="experience-role">Ingeniero de Datos</div>
+            <p>Diseño y arquitectura de Data Lake para Porvenir, desarrollo de ETLs con IBM Datastage y analítica avanzada con Spark y AWS.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Educación y Formación</h2>
+        <div class="grid">
+            <div class="card">
+                <strong>UNIVERSIDAD INTERNACIONAL DE VALENCIA - ESPAÑA</strong><br>
+                Maestría: Astronomía y Astrofísica<br>
+                <span class="experience-date">Febrero 2013 - Abril 2017</span>
+            </div>
+            <div class="card">
+                <strong>UNIVERSIDAD PILOTO DE COLOMBIA - BOGOTA</strong><br>
+                Diplomado: Administración Base de datos Oracle - Networking, Recuperación Tuning<br>
+                <span class="experience-date">Agosto 2004 - Septiembre 2004</span>
+            </div>
+            <div class="card">
+                <strong>APTECH (Proyecto Inteligente) - BOGOTA</strong><br>
+                Especialización: Web Database Developer<br>
+                <span class="experience-date">Enero 2002 - Julio 2003</span>
+            </div>
+            <div class="card">
+                <strong>UNIVERSIDAD ANTONIO NARIÑO - BOGOTA</strong><br>
+                Ingeniería de Sistemas<br>
+                <span class="experience-date">1995 - 2000</span>
+            </div>
+            <div class="card">
+                <strong>COLEGIO SALESIANO JUAN DEL RIZZO- BOGOTA</strong><br>
+                Bachiller Clásico<br>
+                <span class="experience-date">1991</span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Mauricio Fernando Villate Rodriguez - Portfolio Profesional</p>
+</footer>
+
+</body>
+</html>
